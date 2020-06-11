@@ -3,6 +3,8 @@
 ## Want Study
 * C# skills - like UI
 * Unity
+* Git
 
 ## Want Develope
 * Some Games(?)
+
