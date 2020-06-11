@@ -6,7 +6,7 @@
 * Git
 * Algorithm
 
-## Want Develope
+## Want Developed
 * Some Games(?)
 * Desktop Application
 
