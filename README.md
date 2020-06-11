@@ -4,7 +4,12 @@
 * C# skills - like UI
 * Unity
 * Git
+* Algorithm
 
 ## Want Develope
 * Some Games(?)
 * Desktop Application
+
+## Some web page where i study
+* https://www.acmicpc.net/
+* https://stackoverflow.com/
