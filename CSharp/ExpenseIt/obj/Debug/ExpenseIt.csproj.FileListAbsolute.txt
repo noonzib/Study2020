@@ -17,3 +17,4 @@ C:\git\Study2020\CSharp\ExpenseIt\obj\Debug\ExpenseIt.csproj.GenerateResource.ca
 C:\git\Study2020\CSharp\ExpenseIt\obj\Debug\ExpenseIt.csproj.CoreCompileInputs.cache
 C:\git\Study2020\CSharp\ExpenseIt\obj\Debug\ExpenseIt.exe
 C:\git\Study2020\CSharp\ExpenseIt\obj\Debug\ExpenseIt.pdb
+C:\git\Study2020\CSharp\ExpenseIt\obj\Debug\App.baml
