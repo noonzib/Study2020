@@ -1,0 +1,26 @@
+﻿<Window x:Class="DynamicLayoutWithData.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DynamicLayoutWithData"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="IvEmployees">
+            <ListView.View>
+                <GridView AllowsColumnReorder="True">
+                    <GridViewColumn x:Name="c1Employees" Header="Last Name"></GridViewColumn>
+                    <GridViewColumn x:Name="c2Employees" Header="First Name"></GridViewColumn>
+                    <GridViewColumn x:Name="c3Employees" Header="Title"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Name="btnGetData" Content="Get Data" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="75" Height="23" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Click="btnGetData_Click"/>
+
+    </Grid>
+</Window>
