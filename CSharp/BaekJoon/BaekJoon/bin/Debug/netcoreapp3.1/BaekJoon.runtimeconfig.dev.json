@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\latis\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\latis\\.nuget\\packages"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaekJoon", "BaekJoon\BaekJoon.csproj", "{F14060A9-C3C2-4531-BA3F-15A17F6D217B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackJoonSolved", "BackJoonSolved\BackJoonSolved.csproj", "{46254D63-026F-4A25-8A7C-C4C20AA290C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F14060A9-C3C2-4531-BA3F-15A17F6D217B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14060A9-C3C2-4531-BA3F-15A17F6D217B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14060A9-C3C2-4531-BA3F-15A17F6D217B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14060A9-C3C2-4531-BA3F-15A17F6D217B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46254D63-026F-4A25-8A7C-C4C20AA290C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46254D63-026F-4A25-8A7C-C4C20AA290C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46254D63-026F-4A25-8A7C-C4C20AA290C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46254D63-026F-4A25-8A7C-C4C20AA290C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA27CE8D-1297-4626-B741-5EC92C739347}
+	EndGlobalSection
+EndGlobal

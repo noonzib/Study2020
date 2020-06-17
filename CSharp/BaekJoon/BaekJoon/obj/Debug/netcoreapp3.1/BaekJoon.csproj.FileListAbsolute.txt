@@ -1,0 +1,13 @@
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.exe
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.deps.json
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.runtimeconfig.json
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.runtimeconfig.dev.json
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.dll
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\bin\Debug\netcoreapp3.1\BaekJoon.pdb
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.csprojAssemblyReference.cache
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.AssemblyInfoInputs.cache
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.AssemblyInfo.cs
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.csproj.CoreCompileInputs.cache
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.dll
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.pdb
+C:\Users\latis\source\repos\BaekJoon\BaekJoon\obj\Debug\netcoreapp3.1\BaekJoon.genruntimeconfig.cache

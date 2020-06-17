@@ -1,0 +1,13 @@
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.exe
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.deps.json
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.runtimeconfig.json
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.runtimeconfig.dev.json
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.dll
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\bin\Debug\netcoreapp3.1\ChattingProgram.pdb
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.csprojAssemblyReference.cache
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.AssemblyInfoInputs.cache
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.AssemblyInfo.cs
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.csproj.CoreCompileInputs.cache
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.dll
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.pdb
+C:\Users\latis\source\repos\ChattingProgram\ChattingProgram\obj\Debug\netcoreapp3.1\ChattingProgram.genruntimeconfig.cache
