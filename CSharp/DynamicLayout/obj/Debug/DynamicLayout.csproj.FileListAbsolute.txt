@@ -1,0 +1,15 @@
+C:\git\Study2020\CSharp\DynamicLayout\bin\Debug\DynamicLayout.exe.config
+C:\git\Study2020\CSharp\DynamicLayout\bin\Debug\DynamicLayout.exe
+C:\git\Study2020\CSharp\DynamicLayout\bin\Debug\DynamicLayout.pdb
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.csprojAssemblyReference.cache
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\MainWindow.g.cs
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\App.g.cs
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout_MarkupCompile.cache
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout_MarkupCompile.lref
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\MainWindow.baml
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.g.resources
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.Properties.Resources.resources
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.csproj.GenerateResource.cache
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.csproj.CoreCompileInputs.cache
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.exe
+C:\git\Study2020\CSharp\DynamicLayout\obj\Debug\DynamicLayout.pdb
