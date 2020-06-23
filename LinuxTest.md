@@ -51,9 +51,9 @@
 
 ## 쉘
 
-- sh (bourne shell) : "근본" (오리지널)
-- bash : 현재 리눅스의 표준 쉘
-- csh : C 언어 
+    - sh (bourne shell) : "근본" (오리지널)
+    - bash : 현재 리눅스의 표준 쉘
+    - csh : C 언어 
 
 ## 환경변수
     - TMOUT : 자동로그아웃 설정
