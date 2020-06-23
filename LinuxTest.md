@@ -1,4 +1,4 @@
-<h1 align="center">리눅스 사험 대비</h1>
+<h1 align="center">리눅스 시험 대비</h1>
 
 ## 쿼터
 
