@@ -13,3 +13,4 @@ C:\git\Study2020\CSharp\WpfHelloWorld\WpfHelloWorld\obj\Debug\WpfHelloWorld.cspr
 C:\git\Study2020\CSharp\WpfHelloWorld\WpfHelloWorld\obj\Debug\WpfHelloWorld.csproj.CoreCompileInputs.cache
 C:\git\Study2020\CSharp\WpfHelloWorld\WpfHelloWorld\obj\Debug\WpfHelloWorld.exe
 C:\git\Study2020\CSharp\WpfHelloWorld\WpfHelloWorld\obj\Debug\WpfHelloWorld.pdb
+C:\git\Study2020\CSharp\WpfHelloWorld\WpfHelloWorld\obj\Debug\App.baml
