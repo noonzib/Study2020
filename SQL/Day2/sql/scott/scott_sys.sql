@@ -1,6 +1,6 @@
 rem modified 2013-10-07
 REM===================================================================
-REM Oracle : scott_dy.sql (Oracle 11g XE)
+REM Oracle : scott_sys.sql (Oracle 11g XE)
 REM
 REM 학교 실습실 -> scott 사용자가 없을 때
 REM                scott 생성하고 예제 테이블 생성하는 스크립트 파일
@@ -10,7 +10,7 @@ REM (c:/dbdata 폴더 생성 하고 아래 명령을 실습) : Oracle 11g XE
 REM
 REM 실습방법
 REM SQL>conn / as sysdba
-REM SQL>@ c:/dbdata/scott_dy.sql;
+REM SQL>@ c:/dbdata/scott_sys.sql;
 REM===================================================================
 
 Rem Copyright (c) 1990 by Oracle Corporation
@@ -42,14 +42,14 @@ REM 사용자 생성 (scott/tiger)
 
 CREATE USER scott
 IDENTIFIED BY tiger
-default tablespace users
+default tablespace users01
 temporary tablespace temp;
 
 REM-------------------------------------------------------------------
 REM===================================================================
 
-GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO SCOTT IDENTIFIED BY TIGER;
-CONNECT SCOTT/TIGER
+GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO scott IDENTIFIED BY tiger;
+CONNECT scott/tiger
 
 DROP TABLE BONUS;
 DROP TABLE SALGRADE;

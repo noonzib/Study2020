@@ -89,7 +89,7 @@ CREATE TABLE 사원(
     이름 varchar(12),
     부서코드 char(2),
     PRIMARY KEY(사원번호),
-    FOREIGN KEY (부서코드) REFERENCES 부서(부서코드)
+    FOREIGN KEY (부서코드) REFERENCES 부서(부서코드) ON DELETE CASCADE
 );
 
 SELECT * FROM 부서;
@@ -123,4 +123,81 @@ grant connect, resource to study;
 conn study/study123;
 
 @ C:\DBDATA/empdept-ora.sql;
+~~~
+
+D:\oracle\oradata\orcl\users.dbf
+
+## SQL울 스크립트 파일로 실행하기
+
+1. C드라이브에 DBDATA 폴더를 만든다
+복사
+scott.sql
+scott_sys.sql
+
+~~~ cmd
+sqlplus /nolog
+conn / as sysdba
+
+@ C:\DBDATA\scott_sys.sql
+~~~
+
+## 요약
+1. 기본키: 중복불가, 필수입력
+2. 외래키: 다른 테이블의 기본키를 참조하는 키
+
+## 요약
+1. 개체무결성제약조건: 기본키는 널값을 가질 수 없다.
+2. 참조무결성제약조건: 
+
+
+## Quiz4
+~~~ sql
+drop table 학과;
+drop table 학생;
+
+CREATE TABLE 학과(
+    학과코드 char(4) NOT NULL,
+    학과명 varchar(30),
+    CONSTRAINT pk_학과_학과코드 PRIMARY KEY(학과코드)
+);
+
+CREATE TABLE 학생(
+    학번 char(3) NOT NULL,
+    이름 varchar(10),
+    학과코드 char(4),
+    CONSTRAINT pk_학생_학번 PRIMARY KEY(학번),
+    CONSTRAINT fk_학생_학과코드 FOREIGN KEY(학과코드)
+                            REFERENCES 학과(학과코드)
+);
+
+INSERT INTO 학과 values('1001','컴퓨터학과');
+INSERT INTO 학과 values('2001','체육학과');
+
+INSERT INTO 학생 VALUES('501','박지성','1001');
+INSERT INTO 학생 VALUES('401','김연아','2001');
+INSERT INTO 학생 VALUES('402','장미란','2001');
+INSERT INTO 학생 VALUES('502','추신수','1001');
+
+SELECT * FROM 학과;
+SELECt * from 학생;
+
+drop table 학과2;
+drop table 학생2;
+
+CREATE TABLE 학과2(
+    학과코드 char(4) NOT NULL,
+    학과명 varchar(30),
+    CONSTRAINT pk_학과_학과코드 PRIMARY KEY(학과코드)
+);
+
+CREATE TABLE 학생2(
+    학번 char(3) NOT NULL,
+    이름 varchar(10),
+    학과코드 char(4),
+    CONSTRAINT pk_학생_학번 PRIMARY KEY(학번),
+    CONSTRAINT fk_학생_학과코드 FOREIGN KEY(학과코드)
+                            REFERENCES 학과2(학과코드)
+                            ON DELETE CASCADE
+);
+
 ~~~
