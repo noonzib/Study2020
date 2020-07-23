@@ -1,0 +1,75 @@
+-- Quiz1-01) 다음을 SQL문법, 실행결과 작성하시오
+
+-- gmember(id,grouid)
+-- group_ex(groupid,position)
+
+/* 관계대수 실습 스크립트 (Quiz1-01) */
+
+drop table member;
+drop table group_ex;
+
+CREATE TABLE member ( 
+ id      CHAR(3) NOT NULL ,
+ groupid CHAR(1)
+);
+
+CREATE TABLE group_ex ( 
+ groupid   CHAR(1) NOT NULL ,
+ position  VARCHAR(12)
+);
+
+INSERT INTO member VALUES('100', 'A');
+INSERT INTO member VALUES('101', 'B');
+INSERT INTO member VALUES('102', 'A');
+INSERT INTO member VALUES('102', 'F');
+
+INSERT INTO group_ex VALUES('A', '서울');
+INSERT INTO group_ex VALUES('B', '대구');
+INSERT INTO group_ex VALUES('C', '광주');
+INSERT INTO group_ex VALUES('D', '부산');
+INSERT INTO group_ex VALUES('E', '대전');
+
+col groupid format a10
+
+SELECT * FROM member;
+SELECT * FROM group_ex;
+----------------------------------------
+-- Quiz1-01) 다음을 SQL문법, 실행결과 작성하시오
+
+-- gmember(id,grouid)
+-- group_ex(groupid,position)
+
+1. 카티션프로덕트
+2. 동등조인
+3. 자연조인
+4. 왼쪽외부조인
+5. 오른쪽외부조인
+6. 완전외부조인
+----------------------------------------
+-- Quiz1-02) 다음을 SQL문법, 실행결과 작성하시오
+
+/* 관계대수 실습 스크립트 (Quiz1-02) */
+CREATE TABLE R2 (
+	A char(2),
+	B char(2),
+              C char(2)
+);
+
+CREATE TABLE S2 (
+	B char(2),
+              D char(2)
+);
+
+INSERT INTO R2 VALUES ('a1','b1','c7');
+INSERT INTO R2 VALUES ('a2','b1','c5');
+INSERT INTO R2 VALUES ('a3','b4','c3');
+
+INSERT INTO S2 VALUES ('b1','d1');
+INSERT INTO S2 VALUES ('b5','d2');
+
+1. 카티션프로덕트
+2. 동등조인
+3. 자연조인
+4. 왼쪽외부조인
+5. 오른쪽외부조인
+6. 완전외부조인

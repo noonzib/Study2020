@@ -5,6 +5,7 @@
 * Unity
 * Git
 * Algorithm
+* HowToHacking (Web Application, Pwnable)
 
 ## Want Developed
 * Some Games(?)
@@ -13,3 +14,4 @@
 ## Some web page where i study
 * https://www.acmicpc.net/
 * https://stackoverflow.com/
+* https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w

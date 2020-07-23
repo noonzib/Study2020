@@ -1,0 +1,462 @@
+8일차 SQL활용 '20/07/23 (담당: 김희숙)
+데이터베이스 모델링(ERD)
+조인
+
+9일차 SQL활용('20/07/24) 금
+DB이론
+정규화
+무결성
+10일차 SQL활용('20/07/30) 목
+
+오전: 수업
+오후: 평가시험(내부평가 50점만점
+                     외부평가 50점만점)
+========================
+8일차 SQL활용 '20/07/23
+
+데이터모델링(데이터베이스설계) : 
+   요구사항분석
+
+   개념적설계: ERD(개체 관계 다이어그램): P.Chen 제안한 방법
+             개체(entity): 사각형                   => 테이블명
+             속성(애트리뷰트): 타원형(원형)   => 필드명
+             관계: 마름모                            
+
+   논리적설계
+   물리적설계
+
+-----------------------------------------
+--요약
+
+(기출문제: 이론시험)
+기본키: 엔티티무결성제약조건
+          (개체무결성제약조건)
+외래키: 참조무결성제약조건
+
+(기출문제: 이론시험)
+무결성제약조건을 설명하시오
+     데이터정확성
+     사용자가 실수로 입력을 방지하기 위해서
+     제약조건 설정
+
+ 1) 개체무결성제약조건
+       기본키는 널 값을 가질 수 없다
+ 2) 참조무결성제약조건
+       참조하는 테이블의 외래키 값은
+       참조되는 테이블의 기본키 값과 같다
+
+(기출문제: 이론시험)
+정규화에 대해서 설명하시오
+   데이터중복성을 최소화하기 위해 테이블을 분해하는 것
+   
+-----------------------------------------
+웹: HTTP 프로토콜을 사용
+    HTML      XML  
+    웹 브라우저 
+
+프론트엔드 :  Vue.js, React.js
+       백엔드:  JSP, PHP,   Node.js     
+
+앱: iOS          -> swift
+     Android   -> 코틀린
+-----------------------------------------
+코딩테스트 사이트
+
+1. 백준
+2. Leetcode
+
+
+-----------------------------------------
+(기출문제: 이론시험)
+SQL 문법: DML 종류
+
+(CRUD)
+
+insert 
+select 
+update
+delete 
+-----------------------------------------
+(기출문제: 이론시험)
+
+뷰(view): 가상의 테이블
+             물리적으로 존재하지 않는다
+    뷰 장점: 보안
+                사용의 편이성
+
+    뷰에 입력할 수 없는 것:(insert 사용 불가)
+               집계함수로 작성된 뷰
+               조인으로 작성된 뷰 
+                   
+
+CREATE VIEW  성적_view
+as
+   SELECT AVG(점수)
+   FROM  성적;
+
+
+-- 학생(번호, 이름, 성별, 학년, 반, 연락처, 성적)
+
+CREATE VIEW 학생_연락처 
+as
+    SELECT  번호, 이름, 성별, 학년, 반, 연락처
+    FROM    학생
+
+select * from 학생_연락처;
+
+insert into 학생 values(,'','',,,'',);
+insert into 학생_연락처(번호, 이름, 학년, 반)
+ values(4,'권순호',3,4);
+
+-- 학생(번호, 이름, 성별, 학년, 반, 연락처)
+select * from 학생_연락처;
+
+번호, 이름, 성별, 학년, 반, 연락처
+   4   권순호 NULL 3   4   NULL
+
+-----------------------------------------
+(문제: 이론시험)
+
+예제)  
+student(stu_id,resident_id,name,year,address, dept_id)
+
+질의1) student 테이블에서 
+address 가 서울인 레코드 검색하라
+
+SELECT   * 
+FROM     student
+WHERE   address = '서울';
+
+질의4) student 테이블에서 stu_id 와
+name 을 검색하라
+
+student(stu_id,resident_id,name,year,address, dept_id)
+
+SELECT   stu_id, name
+FROM     student;
+
+
+관계대수
+
+합집합
+교집합
+차집합
+
+실렉션(selection): 
+     
+프로젝션(projection)
+
+조인
+
+
+
+
+-----------------------------------------
+-- SQL 실습
+조인(join): 2개 이상의 테이블로 부터 원하는 결과를 나타내는 것
+
+조인: 
+ 1. 내부조인(inner join)
+     1-1) 동등조인(equi join)      = 
+     1-2) 자연조인(natural join)  동등조인에서 공통필드 한 개 제거한 것
+     1-3) 세타조인(theta join)     >, >=, =, <>, >=, >
+
+  2. 외부조인(outer join): 일치하지 않는 행도 나타내는 것
+     2-1) 왼쪽외부조인(left outer join)
+     2-2) 오른쪽외부조인(right outer join)
+     2-3) 완전외부조인(full outer join)
+
+
+-----------------------------------------
+
+
+
+-- 관계대수 문제풀이
+
+SELECT    groupid
+FROM      member
+WHERE    id >= 100;
+
+(파일명)
+SQL_강의노트_김희숙-200723\관계대수\
+(lectDB01-관계대수-pdf.pdf)
+
+[예제4] 다음 관계대수를 작성하고
+그 SQL문법과 실행결과를 작성하라
+
+1. 카티션프로덕트
+2. 동등조인
+3. 자연조인
+4. 왼쪽외부조인
+5. 오른쪽외부조인
+6. 완전외부조인
+
+-- freshman(name,address)
+-- dmember(name,dept_name)
+
+1. 카티션프로덕트
+SELECT  *
+FROM    freshman, dmember;
+
+2. 동등조인
+-- 방법1)
+SELECT   *
+FROM     freshman, dmember
+WHERE   freshman.name = dmember.name;
+
+-- 방법2)
+SELECT   *
+FROM     freshman INNER JOIN dmember
+ON         freshman.name = dmember.name;
+
+
+3. 자연조인
+-- 방법1)
+SELECT   freshman.name, address, dept_name
+FROM     freshman, dmember
+WHERE   freshman.name = dmember.name;
+
+-- 방법2)
+SELECT   freshman.name, address, dept_name
+FROM     freshman INNER JOIN dmember
+ON         freshman.name = dmember.name;
+
+
+내부조인: 2개 이상의
+          테이블로부터 일치하는 행 검색
+외부조인: 2개 이상의
+          테이블로부터 일치하지 않는 행 검색
+
+
+4.왼쪽외부조인
+-- 방법1)  (Oracle)
+SELECT  *
+FROM    freshman, dmember
+WHERE  freshman.name=dmember.name(+);
+  
+-- 방법2)
+SELECT   *
+FROM     freshman LEFT OUTER JOIN dmember
+ON         freshman.name = dmember.name;
+
+-- 왼쪽외부조인 실행결과
+name   address  name  dept_name
+김광식  서울       김광식 컴퓨터공학과
+김현정  대전       김현정 산업공학과
+조영수  대전       NULL   NULL
+
+5.오른쪽외부조인
+-- 방법1)   (Oracle)
+SELECT  *
+FROM    freshman, dmember
+WHERE  freshman.name(+)=dmember.name;
+  
+-- 방법2)
+SELECT   *
+FROM     freshman RIGHT OUTER JOIN dmember
+ON         freshman.name = dmember.name;
+
+-- 오른쪽외부조인 실행결과
+name   address  name  dept_name
+김광식  서울      김광식 컴퓨터공학과
+김현정  대전      김현정 산업공학과
+NULL   NULL    이진영 전자공학과
+
+6. 완전외부조인
+-- 완전외부조인 실행결과
+name   address  name  dept_name
+김광식  서울       김광식  컴퓨터공학과
+김형정  대전       김현정  산업공학과
+조영수  대전       NULL   NULL 
+NULL   NULL      이진영   전자공학과
+-------------------------------------
+/* 관계대수 실습 스크립트 01 */
+drop table freshman;
+drop table dmember;
+
+CREATE TABLE freshman ( 
+ name    VARCHAR(12) NOT NULL ,
+ address VARCHAR(9)
+);
+
+CREATE TABLE dmember ( 
+ name      VARCHAR(12) NOT NULL ,
+ dept_name VARCHAR(30)
+);
+
+INSERT INTO freshman VALUES('김광식', '서울');
+INSERT INTO freshman VALUES('김현정', '대전');
+INSERT INTO freshman VALUES('조영수', '대전');
+
+INSERT INTO dmember VALUES('김광식', '컴퓨터공학과');
+INSERT INTO dmember VALUES('김현정', '산업공학과');
+INSERT INTO dmember VALUES('이진영', '전자공학과');
+
+SELECT * FROM freshman;
+SELECT * FROM dmember;
+----------------------------------------
+/* 관계대수 실습 스크립트 (Quiz1-01) */
+
+drop table member;
+drop table group_ex;
+
+CREATE TABLE member ( 
+ id      CHAR(3) NOT NULL ,
+ groupid CHAR(1)
+);
+
+CREATE TABLE group_ex ( 
+ groupid   CHAR(1) NOT NULL ,
+ position  VARCHAR(12)
+);
+
+INSERT INTO member VALUES('100', 'A');
+INSERT INTO member VALUES('101', 'B');
+INSERT INTO member VALUES('102', 'A');
+INSERT INTO member VALUES('102', 'F');
+
+INSERT INTO group_ex VALUES('A', '서울');
+INSERT INTO group_ex VALUES('B', '대구');
+INSERT INTO group_ex VALUES('C', '광주');
+INSERT INTO group_ex VALUES('D', '부산');
+INSERT INTO group_ex VALUES('E', '대전');
+
+col groupid format a10
+
+SELECT * FROM member;
+SELECT * FROM group_ex;
+----------------------------------------
+-- Quiz1-01) 다음을 SQL문법, 실행결과 작성하시오
+
+-- gmember(id,grouid)
+-- group_ex(groupid,position)
+
+1. 카티션프로덕트
+2. 동등조인
+3. 자연조인
+4. 왼쪽외부조인
+5. 오른쪽외부조인
+6. 완전외부조인
+
+-- Quiz1-02) 다음을 SQL문법, 실행결과 작성하시오
+
+/* 관계대수 실습 스크립트 (Quiz1-02) */
+CREATE TABLE R2 (
+	A char(2),
+	B char(2),
+              C char(2)
+);
+
+CREATE TABLE S2 (
+	B char(2),
+              D char(2)
+);
+
+INSERT INTO R2 VALUES ('a1','b1','c7');
+INSERT INTO R2 VALUES ('a2','b1','c5');
+INSERT INTO R2 VALUES ('a3','b4','c3');
+
+INSERT INTO S2 VALUES ('b1','d1');
+INSERT INTO S2 VALUES ('b5','d2');
+
+1. 카티션프로덕트
+2. 동등조인
+3. 자연조인
+4. 왼쪽외부조인
+5. 오른쪽외부조인
+6. 완전외부조인
+
+-- Quiz1-01) 관계대수
+
+-- 동등조인 실행결과
+id      groupid      groupid    position
+100   A                A             서울
+101   B                B              대구
+102   A                A              서울
+
+S      *
+F       gmember INNER JOIN group_ex
+ON    gmember.id=group_ex.groupid;
+
+-- 왼쪽외부조인 실행결과
+
+id      groupid      groupid    position
+============================
+
+
+-- 학생(학번,학생명)
+-- 과목(과목번호, 과목명)
+-- 수강(학번,과목번호,성적)
+
+-- 문제) 학번, 학생명, 과목명,성적을 검색
+
+-- 방법1)
+SELECT   학생.학번,학생명,과목명,성적
+FROM     학생  ,    수강   ,    과목
+WHERE   학생.학번=수강.학번
+    AND   수강.과목번호=과목.과목번호;
+
+-- 방법2)
+SELECT   학생.학번, 학생명, 과목명,성적
+FROM    학생   INNER JOIN    수강
+    ON    학생.학번=수강.학번
+          INNER JOIN 과목
+    ON    수강.과목번호=과목.과목번호;
+
+-- 수강신청하지 않은 학생도 검색
+SELECT   학생.학번, 학생명, 과목명,성적
+FROM    학생   LEFT OUTER JOIN    수강
+    ON    학생.학번=수강.학번
+          LEFT OUTER  JOIN 과목
+    ON    수강.과목번호=과목.과목번호;
+
+
+
+
+
+
+
+-- 고객(고객번호,고객명,주소,전화번호)
+-- 도서(도서번호,도서명,출판사,도서단가)
+-- 주문(주문번호,고객번호,도서번호,주문일자,주문금액)
+
+-- 문제) 축구의역사를 주문한 고객명,도서명,주문금액 검색
+
+S     고객명,도서명,주문금액
+F     고객, 주문, 도서
+W    고객.고객번호=주문.고객번호
+ AND 주문.도서번호=도서.도서번호
+ AND  도서명 = '축구의 역사';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
