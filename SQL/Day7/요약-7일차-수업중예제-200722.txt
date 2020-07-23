@@ -1,0 +1,218 @@
+'20/07/22 7일차 수업중실습 (담당: 김희숙)
+
+====================
+SQL(질의어)
+
+데이터정의어(Data Definition Language)
+DDL : CREATE(생성)
+         DROP(삭제)
+         ALTER(수정)
+
+데이터조작어(Data Manipulation Language)
+DML : SELECT
+         INSERT
+         UPDATE
+         DELETE
+        
+데이터제어어 
+DCL : GRANT, REVOKE
+          COMMIT, ROLLBACK
+
+
+-- ALTER TABLE 실습
+
+-- project(projno, projname,  budget)
+
+CREATE TABLE project (
+   projno              int ,
+   projname          char(10) ,  
+   budget              int
+);
+
+-- (Oracle)
+-- 테이블 구조 조회
+desc project;
+
+
+select * from project;
+
+-- project(projno, projname,  budget)
+
+-- 1. 필드 추가
+-- 2. 필드 수정
+-- 3. 필드 삭제
+
+-- project(projno, projname,  budget, period)
+
+-- 1. 필드 추가
+ALTER TABLE project
+ADD   period  int;
+ 
+desc project;
+
+-- 3. 필드 삭제
+-- project(projno, projname,  budget)
+
+ALTER TABLE project
+DROP COLUMN period;
+
+desc project;
+
+-- 2. 필드 수정
+-- project(projno, projname,  budget)
+
+projname 데이터형식  char(10)  -> varchar(30)
+
+-- (Oracle)
+ALTER TABLE  project
+MODIFY       projname  varchar(30); 
+
+-- (MS SQL)(MySQL)
+ALTER TABLE  project       
+ALTER COLUMN projname  varchar(30); 
+--------------------------------
+-- project(projno, projname,  budget)
+
+CREATE TABLE project (
+   projno              int ,
+   projname          char(10) ,  
+   budget              int
+);
+
+-- 1. 필드 추가
+-- 2. 필드 수정
+-- 3. 필드 삭제
+
+-- project(projno, projname,  budget, period)
+
+-- 1. 필드 추가 하시오  (period 필드 추가)
+-- 3. 필드 삭제 하시오  (period 필드 삭제)
+-- 2. 필드 데이터형식 수정 하시오  projname varchar(30)
+
+=======================
+
+DBMS(데이터베이스관리시스템)
+
+(MS SQL)
+
+sp_help project;
+
+(Oracle)
+
+desc project;
+
+(MySQL)
+
+describe project;
+--------------------------------
+-- project(projno, projname,  budget)
+
+CREATE TABLE project (
+   projno              int ,
+   projname          char(10) ,  
+   budget              int
+);
+
+-- 1. 필드 추가
+-- 2. 필드 수정
+-- 3. 필드 삭제
+
+-- project(projno, projname,  budget, period)
+
+-- 1. 필드 추가 하시오  (period 필드 추가)
+-- 3. 필드 삭제 하시오  (period 필드 삭제)
+-- 2. 필드 데이터형식 수정 하시오  projname varchar(30)
+
+
+-- 나중에 기본키 추가하기
+-- project(projno, projname,  budget)
+
+CREATE TABLE project (
+   projno              int ,
+   projname          char(10) ,  
+   budget              int
+);
+
+-- 제약조건(Constraint)
+
+-- 나중에 기본키 추가하기
+-- project(projno, projname,  budget)
+
+ALTER TABLE project
+ADD  CONSTRAINT 
+      pk_project_projno PRIMARY KEY(projno);
+
+
+-- project 테이블 생성하기
+CREATE TABLE project (
+   projno              int        NOT NULL ,
+   projname          char(10) ,  
+   budget              int
+);
+
+-- 나중에 기본키 추가하기
+ALTER TABLE project
+ADD  CONSTRAINT 
+      pk_project_projno PRIMARY KEY(projno);
+
+=========================
+-- 사용자 생성 
+
+sqlplus /nolog
+conn / as sysdba
+
+CREATE USER study
+identified by study123
+default tablespace users;
+
+grant connect, resource to study;
+
+-- 암호변경
+ALTER USER study
+identified by study123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

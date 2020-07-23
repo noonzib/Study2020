@@ -1,18 +1,3 @@
-rem modified 2013-10-07
-REM===================================================================
-REM Oracle : scott_sys.sql (Oracle 11g XE)
-REM
-REM 학교 실습실 -> scott 사용자가 없을 때
-REM                scott 생성하고 예제 테이블 생성하는 스크립트 파일
-REM
-REM 사용자(scott/tiger) 생성하고 4개의 예제 테이블 생성된다
-REM (c:/dbdata 폴더 생성 하고 아래 명령을 실습) : Oracle 11g XE
-REM
-REM 실습방법
-REM SQL>conn / as sysdba
-REM SQL>@ c:/dbdata/scott_sys.sql;
-REM===================================================================
-
 Rem Copyright (c) 1990 by Oracle Corporation
 Rem NAME
 REM    UTLSAMPL.SQL
@@ -36,20 +21,10 @@ SET ECHO OFF
 rem CONGDON    Invoked in RDBMS at build time.	 29-DEC-1988
 rem OATES:     Created: 16-Feb-83
 
-REM===================================================================
-REM-------------------------------------------------------------------
-REM 사용자 생성 (scott/tiger)
-
-CREATE USER scott
-IDENTIFIED BY tiger
-default tablespace users
-temporary tablespace temp;
-
-REM-------------------------------------------------------------------
-REM===================================================================
-
-GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO scott IDENTIFIED BY tiger;
-CONNECT scott/tiger
+rem GRANT CONNECT,RESOURCE,UNLIMITED TABLESPACE TO SCOTT IDENTIFIED BY TIGER;
+rem ALTER USER SCOTT DEFAULT TABLESPACE USERS;
+rem ALTER USER SCOTT TEMPORARY TsABLESPACE TEMP;
+rem CONNECT scott/tiger
 
 DROP TABLE BONUS;
 DROP TABLE SALGRADE;
@@ -125,27 +100,10 @@ INSERT INTO SALGRADE VALUES (5,3001,9999);
 COMMIT;
 
 SET TERMOUT ON
-
-REM-------------------------------------------------------------------
-
-set pagesize 30
-
-COL empno          FOR        9999
-COL ename          FOR        a10
-COL job            FOR        a9
-COL mgr            FOR        9999
-COL hiredate       FOR        a8
-COL sal            FOR        999999
-COL comm           FOR        999999
-COL deptno         FOR        99
-
-REM-------------------------------------------------------------------
-
 SET ECHO ON
 
-rem modified 2013-10-07
+rem modified 2012-09-27
 show user;
 
 select * from dept;
-
- 
+rem select * from emp;
