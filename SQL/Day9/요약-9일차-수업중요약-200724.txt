@@ -1,0 +1,358 @@
+9일차 SQL활용 '20/07/24 (담당: 김희숙)
+
+* SQL활용 내부평가시험
+ 시행일자: 2020년 7월 30일 오후
+ 시험문제: 필기 객관식     20점(1문제당 1점씩)
+              실기  SQL 실습 30점(테이블생성 10점
+                                           데이터입력 5점
+                                           SELECT 문제 15점 )
+==========================
+뷰: 가상의 테이블
+    물리적으로 존재하지 않는다
+
+장점: 보안
+        사용의편이성
+
+뷰에 입력이 불가능한 경우:  집계함수로 작성된 뷰
+                                       조인으로 작성된 뷰
+
+사원(사번,사원명,부서코드,직책,성별,입사일자,급여)
+
+CREATE VIEW 사원_명단
+as
+   SELECT 사번,사원명,부서코드,직책,성별,입사일자
+   FROM   사원;
+
+select * from 사원_명단;
+
+insert into 사원_명단 values('1005','이정민','1','사원','M','2020-07-24');
+
+select * from 사원;
+
+사원(사번,사원명,부서코드,직책,성별,입사일자,급여)
+부서(부서코드,부서명,위치)
+
+CREATE VIEW 부서_사원명단 
+as 
+   SELECT 사번,사원명,사원.부서코드,직책,  부서코드,부서명
+   FROM   사원 , 부서
+   WHERE  사원.부서코드 = 부서.부서코드;
+
+
+select * from 부서_사원명단;
+
+
+
+SQL: DDL: CREATE, ALTER, DROP
+       DML: SELECT, INSERT, UPDATE, DELETE
+       DCL   : GRANT, REVOKE
+
+UPDATE dept
+SET  loc='SEOUL' , dname = 'office'
+WHERE deptno = 70;
+
+3. 다음 SQL문법을 작성하시오
+
+-- 상품(상품코드,상품이름,금액)
+-- tbl_product_01(pcode, name, cost)
+
+-- 매장(매장코드,매장이름)
+-- tbl_shop_01(scode,sname)
+
+-- 판매(판매번호,판매코드,판매일,매장코드,수량)
+-- tbl_salelist_01(saleno,pcode,saledate,scode,amount)
+
+3-1) 상품코드, 판매날짜, 매장코드, 상품명, 
+판매수량, 총판매액을 나타내도록 SQL문법을 작성하시오
+
+SELECT  P.pcode, saledate, S.scode, name,  SUM(amount * cost)
+FROM    tbl_product_01 P , tbl_salelist_01 S, tbl_shop_01 SH
+WHERE   P.pcode=S.pcode
+   AND   S.scode=SH.scode
+  GROUP BY P.pcode, saledate;
+ 
+3-2) 매장별 판매액을 계산하는 SQL문법을 작성하시오
+매장코드, 매장명, 매장별 판매액
+
+SELECT   S.scode, sname, name, SUM(cost*amount) as "매장별판매액"
+FROM    tbl_product_01 P , tbl_salelist_01 S, tbl_shop_01 SH
+WHERE   P.pcode=S.pcode
+   AND   S.scode=SH.scode
+  GROUP BY S.scode, name
+
+SELECT   S.scode, sname, name, AVG(cost*amount), SUM(cost*amount) as "매장별판매액"
+FROM    tbl_product_01 P , tbl_salelist_01 S, tbl_shop_01 SH
+WHERE   P.pcode=S.pcode
+   AND   S.scode=SH.scode
+  GROUP BY S.scode, name
+
+3-3) 상품별 판매액을 계산하는 SQL문법을 작성하시오
+상품코드, 상품명, 상품별 판매액
+
+
+===================
+4. 무결성 제약조건
+사용자가 실수로 입력하는 것을
+방지하기 위헤 제약조건 설정
+
+1) 기본키
+   개체무결성제약조건
+2) 외래키
+   참조무결성제약조건
+3) unique
+   키 제약조건
+     중복된 값을 갖지 않는다
+4) 도메인제약조건
+   값의 범위를 제한
+
+* 도메인(domain):
+     각 필드가 가질 수 있는
+     값들의 집합
+
+-- 도메인 제약조건 실습
+-- 도메인 실습1
+drop table medal_list2018;
+
+CREATE TABLE medal_list2018 (
+  medal char(9)  CHECK (medal IN('금메달','은메달','동메달')),
+  name  varchar(12) ,
+  PRIMARY KEY(medal)
+);
+
+insert into medal_list2018 values('금메달','김철수');
+insert into medal_list2018 values('은메달','이유리');
+
+-- 오류
+insert into medal_list2018 values('동','김하나');
+
+
+select * from medal_list2018;
+----------------------------------------------------------
+-- 도메인 실습2
+drop table medal_sungjuk2018;
+
+CREATE TABLE medal_sungjuk2018 (
+  medal  char(9) CHECK (medal IN('금메달','은메달','동메달')),
+  name   varchar(12) ,
+  jumsu  int     CHECK (jumsu >=0),
+  PRIMARY KEY(medal)
+);
+
+insert into medal_sungjuk2018 values('금메달','김철수', 250);
+insert into medal_sungjuk2018 values('은메달','이유리', 220);
+
+-- 오류
+insert into medal_sungjuk2018 values('동','김하나', 100);
+insert into medal_sungjuk2018 values('동메달','김하나', -10);
+
+
+select * from medal_sungjuk2018;
+----------------------------------------------------------
+* 요약
+
+* 정규화(Normalization):
+     데이터 중복을 최소화하기 위해
+     테이블을 분해하는 과정
+
+  X     ->  Y
+결정자     종속자
+(키)      (일반필드)
+
+  학번 -> 학생이름  (0)
+
+ 학생이름 -> 학번   (X)
+
+   학번 -> 학생명, 성별, 연락처, 학과
+
+   학번 -> 학생명
+   학번 -> 성별
+   학번 -> 연락처
+   학번 -> 학과
+
+* 정규화 과정(Normal Form)
+ 1. 제1정규화(1NF): 원자값(atomic value)
+ 2. 제2정규화(2NF): 부분함수종속제거(완전함수종속)
+ 3. 제3정규화(3NF): 이행함수종속제거
+   4. 보이스코드(BCNF)
+
+ 5. 제4정규화(4NF)
+ 6. 제5정규화(5NF)
+    
+* 정규화 목적: 이상현상(Anomaly)
+                                  입력이상(insert)
+                                  수정이상(update)
+                                  삭제이상(delete)
+
+
+***  BCNF(보이스코드 정규형): 결정자가 후보키이어야
+
+--------------------------------------------
+* 트랜잭션(transaction):
+    일의 논리적인 단위
+
+서울->부산 100만원 계좌이체
+
+원자성: all or nothing
+
+(별5개) 트랜잭션 성질(ACID)
+Atomicity    원자성
+Consistency 일관성
+Isolation     독립성(격리성)
+Durability   지속성(영속성)
+=====================
+데이터베이스:
+   공유,통합,저장,운영
+데이터베이스관리시스템
+  (DBMS): 
+데이터베이스 시스템
+   하드웨어,DBMS,데이터,사용자
+   데이터언어(SQL)
+
+파일시스템 단점:
+    데이터중복성
+    데이터종속성
+DBMS 장점:
+    데이터중복을최소화
+    데이터독립성
+
+-ANSI/SPARC 아키텍처
+스키마 3단계 구조
+
+외부스키마  학생_뷰(학번,학생명)
+             논리적데이터독립성
+개념스키마  학생(학번,학생명,성적)
+             물리적데이터독립성
+내부스키마
+
+학생(학번,학생명,성적)
+
+CREATE TABLE 학생(
+  학번      char(8) ,
+  학생명   varchar(20),
+  성적      int ,
+  primary key(학번) 
+);
+
+-- 데이터베이스 모델링
+
+요구사항 분석
+개념적설계
+논리적설계
+물리적설계
+구현
+----------------------------------
+릴레이션(테이블): 행과 열로 구성된 2차원의 표
+
+관계형 데이터베이스
+
+학생
+    학번    학생명   학년   성별   연락처  거주지
+   -------------------------------------------------
+       1                                              
+       2                                           
+       3                                            
+
+행, 투플,                 레코드
+열, 속성(애트리뷰트), 필드, 컬럼
+
+스키마(schema): 정적(static)        , 내포(intension)
+인스턴스(instance): 동적(dynamic), 외연(extension)
+
+
+----------------------------------
+* 요약
+
+키의 종류:
+    수퍼키: 유일성
+    후보키: 유일성, 최소성
+    기본키: 중복불가, 필수입력
+    대체키: 후보키에서 기본키를 제외한 키    
+    외래키: 한 테이블의 기본키를 참조하는 키
+----------------------------------------------------
+자체조인(self join)
+
+SELECT  M.empname 사원명, E.empname 관리자
+FROM   selfemp M, selfemp E
+WHERE M.manger = E.empno
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. 데이터베이스 구조를 설명
+외부스키마: 뷰
+개념스키마: 스키마
+내부스키마
+
+조인: 내부: 동등 =
+               자연
+               세타: >,>=,=,<>,<=,<
+       외부 : 왼쪽
+                오른쪽
+               완전
+
+
+
+
+
+

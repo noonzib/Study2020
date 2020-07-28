@@ -1,0 +1,92 @@
+-- '20/07/24 정보처리산업기사(과정형평가) 필기 예상문제
+
+-- (SQL활용_예상문제-200724-pdf.pdf)
+
+drop table tbl_salelist_01;
+drop table tbl_product_01;
+drop table tbl_shop_01;
+
+-- 상품(상품코드,상품이름,금액)
+-- tbl_product_01(pcode, name, cost)
+
+CREATE TABLE tbl_product_01(
+   pcode  varchar2(10)  NOT NULL , 
+   name   varchar2(20) ,
+   cost     number(10)  ,
+   PRIMARY KEY(pcode)
+);
+
+-- 매장(매장코드,매장이름)
+-- tbl_shop_01(scode,sname)
+
+CREATE TABLE tbl_shop_01(
+    scode   varchar2(10)  NOT NULL ,
+    sname  varchar2(20) ,
+    PRIMARY KEY(scode)
+);
+
+-- 판매(판매번호,판매코드,판매일,매장코드,수량)
+-- tbl_salelist_01(saleno,pcode,saledate,scode,amount)
+CREATE TABLE tbl_salelist_01(
+    saleno     number(10)  NOT NULL ,
+    pcode      varchar2(10)  NOT NULL ,
+    saledate  date ,
+    scode      varchar2(10)  NOT NULL ,
+    amount   number(10) ,
+    PRIMARY KEY(saleno)
+);
+
+-- 상품(상품코드,상품이름,금액)
+-- tbl_product_01(pcode, name, cost)
+
+-- 매장(매장코드,매장이름)
+-- tbl_shop_01(scode,sname)
+
+-- 판매(판매번호,판매코드,판매일,매장코드,수량)
+-- tbl_salelist_01(saleno,pcode,saledate,scode,amount)
+
+-- 상품(상품코드,상품이름,금액)
+-- tbl_product_01(pcode, name, cost)
+
+INSERT INTO tbl_product_01 VALUES('AA01','',3000);
+INSERT INTO tbl_product_01 VALUES('AA02','',3500);
+INSERT INTO tbl_product_01 VALUES('AA03','',4000);
+INSERT INTO tbl_product_01 VALUES('AA04','',4500);
+INSERT INTO tbl_product_01 VALUES('AA05','',5000);
+INSERT INTO tbl_product_01 VALUES('AA06','',6000);
+INSERT INTO tbl_product_01 VALUES('AA07','',6500);
+INSERT INTO tbl_product_01 VALUES('AA08','',7000);
+INSERT INTO tbl_product_01 VALUES('AA09','',2500);
+
+-- 매장(매장코드,매장이름)
+-- tbl_shop_01(scode,sname)
+
+INSERT INTO tbl_shop_01 VALUES('S001','강남점');
+INSERT INTO tbl_shop_01 VALUES('S002','강서점');
+INSERT INTO tbl_shop_01 VALUES('S003','강동점');
+INSERT INTO tbl_shop_01 VALUES('S004','강북점');
+INSERT INTO tbl_shop_01 VALUES('S005','동대문점');
+INSERT INTO tbl_shop_01 VALUES('S006','인천점');
+
+-- 판매(판매번호,판매코드,판매일,매장코드,수량)
+-- tbl_salelist_01(saleno,pcode,saledate,scode,amount)
+
+INSERT INTO tbl_salelist_01 VALUES(100001,'AA01','20180902','S001',50);
+INSERT INTO tbl_salelist_01 VALUES(100002,'AA03','20180902','S002',40);
+INSERT INTO tbl_salelist_01 VALUES(100003,'AA04','20180902','S002',20);
+INSERT INTO tbl_salelist_01 VALUES(100004,'AA04','20180902','S001',30);
+INSERT INTO tbl_salelist_01 VALUES(100005,'AA05','20180902','S004',40);
+INSERT INTO tbl_salelist_01 VALUES(100006,'AA03','20180902','S004',30);
+INSERT INTO tbl_salelist_01 VALUES(100007,'AA01','20180902','S003',40);
+INSERT INTO tbl_salelist_01 VALUES(100008,'AA04','20180902','S004',10);
+INSERT INTO tbl_salelist_01 VALUES(100009,'AA01','20180902','S003',20);
+INSERT INTO tbl_salelist_01 VALUES(100010,'AA05','20180902','S003',30);
+INSERT INTO tbl_salelist_01 VALUES(100011,'AA01','20180902','S001',40);
+INSERT INTO tbl_salelist_01 VALUES(100012,'AA03','20180902','S002',50);
+INSERT INTO tbl_salelist_01 VALUES(100013,'AA04','20180902','S002',50);
+INSERT INTO tbl_salelist_01 VALUES(100014,'AA05','20180902','S004',20);
+INSERT INTO tbl_salelist_01 VALUES(100015,'AA01','20180902','S006',30);
+
+select * from tbl_product_01;
+select * from tbl_shop_01;
+select * from tbl_salelist_01;

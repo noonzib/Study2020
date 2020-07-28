@@ -1,0 +1,103 @@
+30401 고현준
+1. 2
+2. (1-ㄷ), (2-ㄴ),(3-ㄹ),(4-ㄱ)
+3. 4
+4. 4
+5. 2
+6. SELECT, UPDATE, DELETE, INSERT
+7. 
+CREATE TABLE 성적정보(
+    학번 int,
+    성명 varchar(30),
+    국어 int,
+    영어 int,
+    수학 int
+);
+
+INSERT INTO 성적정보 VALUES(10101, '황학생', 75, 85, 90);
+INSERT INTO 성적정보 VALUES(10103, '노학생', NULL, 95, 85);
+
+8.
+select sum(국어, 영어, 수학), avg(국어, 영어, 수학) 
+from 성적정보
+
+9. 
+select sum(국어), sum(영어), sum(수학), avg(국어), avg(영어), avg(수학)
+from 성적정보
+group by 국어, 영어, 수학
+
+
+10. 3
+11. 1
+12. (1-ㄱ), (2,ㄴ), (3,ㄷ)
+13. 3개
+14. 뷰
+15. 3
+16. 4
+17. 개념적 설계
+18. 1
+19. 4
+20. 2
+21. UNIQUE
+22. 1
+
+1. 사용자의 권한을 조정하는 명렁어
+2.
+3.
+4. 결점이 없는 제약조건
+5.
+
+
+
+1.
+CREATE TABLE tbl_product_01(
+    pcode varchar2(10) not null,
+    name varchar2(20),
+    cost number(10),
+    PRIMARY KEY(pcode)
+);
+
+CREATE TABLE tbl_shop_01(
+    scode varchar2(10) not null,
+    sname varchar2(20),
+    primary key(scode)
+);
+
+CREATE TABLE tbl_salelist_01(
+    saleno number(10) not null,
+    pcode varchar2(10) not null,
+    saledate date,
+    scode varchar2(10) not null.
+    amount number(10),
+    primary key(saleno)
+);
+
+2.
+INSERT INTO tbl_product_01 values('AA01', '아메리카노',3000);
+INSERT INTO tbl_product_01 values('AA02', '에스프레소',3500);
+
+INSERT INTO tbl_shop_01 values('S001', '강남점');
+INSERT INTO tbl_shop_01 values('S002', '강서점');
+
+INSERT INTO tbl_salelist_01 values(100001, 'AA01', 20180902,S001,50);
+INSERT INTO tbl_salelist_01 values(100002, 'AA03', 20180902,S002,40);
+
+3-1)
+SELECT tbl_salelist_01.pcode, saledate, tbl_salelist_01.scode, name, amount, cost*amount
+FROM tbl_product_01, tbl_show_01, tbl_salelist_01
+WHERE tbl_salelist_01.pcode=tbl_product_01.pcode 
+	AND tbl_salelist_01.scode=tbl_shop_01.scode;
+
+
+3-2)
+SELECT tbl_salelist_01.scode, sname, sum(cost*amount)
+FROM tbl_shop_01, tbl_salelist_01, tbl_product_01
+WHERE tbl_salelist_01.pcode=tbl_product_01.pcode 
+AND tbl_salelist_01.scode=tbl_shop_01.scode
+GROUP BY tbl_salelist_01.scode
+
+3-3)
+SELECT tbl_salelist_01.pcode, name, sum(cost*amount)
+FROM tbl_salelist_01, tbl_product_01
+WHERE tbl_salelist_01.pcode=tbl_product_01.pcode 
+GROUP BY tbl_salelist_01.pcode
